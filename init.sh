@@ -17,7 +17,7 @@ fi
 ln -s ~/repos/dotfiles/jht.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/jht.zsh-theme
 
 # link dotfiles
-ln -s ~/repos/dotfiles/zshrc ~/.zshrc
+cp ~/repos/dotfiles/zshrc ~/.zshrc
 ln -s ~/repos/dotfiles/vimrc ~/.vimrc
 ln -s ~/repos/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/repos/dotfiles/gitconfig ~/.gitconfig
