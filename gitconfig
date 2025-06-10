@@ -1,0 +1,5 @@
+[user]
+	name = haitian-jiang
+	email = jht2001120@163.com
+[protocol "file"]
+	allow = always
