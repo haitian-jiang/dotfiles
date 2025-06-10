@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# wget https://raw.githubusercontent.com/haitian-jiang/dotfiles/refs/heads/main/init.sh -O - | bash
+
 # zsh
 sudo apt update
 # sudo apt install -y zsh wget exa libtbb-dev
