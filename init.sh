@@ -11,25 +11,19 @@ if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions" ]; then
 fi
 
 mkdir -p ~/repos
-git clone https://github.com/haitian-jiang/dotfiles.git ~/repos/dotfiles
+if [ ! -d ~/repos/dotfiles ]; then
+    git clone https://github.com/haitian-jiang/dotfiles.git ~/repos/dotfiles
+fi
 ln -s ~/repos/dotfiles/jht.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/jht.zsh-theme
 
 # link dotfiles
+ln -s ~/repos/dotfiles/zshrc ~/.zshrc
 ln -s ~/repos/dotfiles/vimrc ~/.vimrc
 ln -s ~/repos/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/repos/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/repos/dotfiles/condarc ~/.condarc
-cat >> ~/.zshrc << EOF 
-bindkey ';' autosuggest-accept
-alias tl='tmux ls'
-alias tn='tmux new -s'
-alias ta='tmux attach -t'
-alias ls="exa --icons --time-style=iso"
-alias la='ls -lah'
-alias tree="ls -lT"
-alias p=ipython
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-EOF
+mkdir -p ~/.config/htop
+ln -s htoprc ~/.config/htop/htoprc
 
 # install conda
 if command -v conda &> /dev/null; then
@@ -45,19 +39,8 @@ else
     /opt/miniconda3/bin/conda init zsh
 fi
 
-conda activate base
-pip install ipython
-ipython profile create
-echo "c.TerminalInteractiveShell.confirm_exit = False" >> ~/.ipython/profile_default/ipython_config.py
-
-# ipython
-mkdir -p ~/.ipython/profile_default
-cp ~/repos/dotfiles/shortcuts.py ~/.ipython/profile_default/startup/shortcuts.py
-
 # install tmux and plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
-
-ln -s htoprc ~/.config/htop/htoprc
 
 sudo timedatectl set-timezone America/Los_Angeles
