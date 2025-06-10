@@ -1,4 +1,4 @@
-pip install ipython
+# pip install ipython
 ipython profile create
 echo "c.TerminalInteractiveShell.confirm_exit = False" >> ~/.ipython/profile_default/ipython_config.py
 
