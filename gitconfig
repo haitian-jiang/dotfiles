@@ -3,3 +3,5 @@
 	email = jht2001120@163.com
 [protocol "file"]
 	allow = always
+[init]
+	defaultBranch = main
