@@ -46,4 +46,4 @@ fi
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
-sudo timedatectl set-timezone America/Los_Angeles
+sudo timedatectl set-timezone America/New_York
