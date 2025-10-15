@@ -3,7 +3,7 @@
 
 # zsh
 sudo apt update
-# sudo apt install -y zsh wget exa libtbb-dev
+# sudo apt install -y zsh wget eza libtbb-dev tmux
 sudo chsh -s $(which zsh) $(whoami)
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
